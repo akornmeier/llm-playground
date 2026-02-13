@@ -11,5 +11,20 @@
     "test:coverage": "vitest run --coverage",
     "lint": "eslint src/",
     "format": "prettier --write 'src/**/*.ts'"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.43",
+    "@ai-sdk/openai": "^3.0.29",
+    "ai": "^6.0.86",
+    "chromadb": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^10.0.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   }
 }
