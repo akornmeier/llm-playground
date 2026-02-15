@@ -20,10 +20,57 @@ coverage gaps, and the practical trade-offs involved in assembling a training co
 | 1 | `01_common_crawl.ipynb` | Download and parse WARC files from Common Crawl; filter for legal content; see how sparse legal text is in a general web crawl. |
 | 2 | `02_courtlistener_api.ipynb` | Load structured court opinions from CourtListener; compare data quality against raw web extracts; compute corpus statistics. |
 
+## Environment Setup
+
+The notebooks require Python 3.11 and several dependencies. macOS ships with a newer
+Python that isn't compatible with all ML libraries yet, so we use **pyenv** to install
+3.11 and create an isolated virtual environment.
+
+### 1. Install pyenv (Python version manager)
+
+```bash
+brew install pyenv
+```
+
+### 2. Install Python 3.11
+
+```bash
+pyenv install 3.11
+```
+
+Verify the installed version (e.g. 3.11.14):
+
+```bash
+ls ~/.pyenv/versions/
+```
+
+### 3. Create a virtual environment
+
+From the repository root, create a `.venv` inside `notebooks/` using the pyenv-managed
+Python. Use the exact version number from the previous step:
+
+```bash
+~/.pyenv/versions/3.11.14/bin/python -m venv notebooks/.venv
+```
+
+### 4. Install dependencies
+
+```bash
+notebooks/.venv/bin/pip install -r notebooks/requirements.txt
+```
+
+This will take a few minutes — PyTorch alone is ~2 GB.
+
+### 5. Launch a notebook
+
+```bash
+notebooks/.venv/bin/jupyter notebook notebooks/01-data-collection/01_common_crawl.ipynb
+```
+
 ## Prerequisites
 
-- Python 3.10+
-- Packages: `warcio`, `beautifulsoup4`, `requests`
+- macOS with Homebrew
+- Packages listed in `notebooks/requirements.txt`
 - Sample data in `../../datasets/sample/court_opinions.jsonl` (included in this repo)
 
 ## Key Takeaways
